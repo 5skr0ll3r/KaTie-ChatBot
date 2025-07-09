@@ -20,7 +20,8 @@ Created by [Charalambos Rentoumis](https://github.com/5skr0ll3r)
 
 ## Overview
 
-KaTie is a customer assistant chatbot tailored to our companys needs. It helps users get information faster without having to navigate the full website to find what they are looking for. 
+KaTie is a customer assistant chatbot tailored to our companys needs. It helps users get information faster without having to navigate the full website to find what they are looking for.
+
 ![Chatbot](./assets/chatbot.png)
 ---
 
@@ -127,6 +128,9 @@ SCM_DO_BUILD_DURING_DEPLOYMENT=true # We set DO_BUILD to true in order for azure
 
 ## Code
 [CODE.md](./CODE.md)
+
+## Security
+[SECURITY.md](./SECURITY.md)
 
 ## License
 [Attribution-ShareAlike 4.0 International](./LICENSE.md)
