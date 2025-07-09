@@ -1,0 +1,31 @@
+{
+  "name": "chatbot",
+  "version": "1.0.0",
+  "description": "IMKTChatBot",
+  "main": "service.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "chatbot",
+    "openai",
+    "javascript",
+    "ai"
+  ],
+  "author": "Charalambos Rentoumis (5skr0ll3r)",
+  "license": "CC-BY-SA-4.0",
+  "dependencies": {
+    "@pinecone-database/pinecone": "^5.1.2",
+    "dotenv": "^16.5.0",
+    "openai": "^4.97.0",
+    "pinecone": "^0.1.0",
+    "rate-limiter-flexible": "^7.1.1",
+    "uuid": "^11.1.0",
+    "ws": "^8.18.1"
+  },
+  "overrides": {
+    "pinecone": {
+      "debug": "^4.3.4"
+    }
+  }
+}

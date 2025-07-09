@@ -1,0 +1,157 @@
+<iframe
+	class="katie-chatbot"
+	src="https://katiechatbot-ekgdcqfphzfcb3bw.northeurope-01.azurewebsites.net/api/v1/get/embedding"
+	scrolling="no"
+	style="position: fixed; bottom: -20px; right: 0px; width: 500px; height: 700px; border: none; z-index: 9999; "
+	loading="lazy"
+	title="Katie Chatbot"
+></iframe>
+<div class="katie-icon"
+style="width: 90px; height: 90px; border: none; z-index: 9999; right: 0px; bottom: 2px; position: fixed;">
+<img width="90px" height="90px" src="https://intermediakt.org/wp-content/uploads/2023/12/KTBot-1.png">
+</div>
+
+<style>
+	.katie-chatbot{
+		display: none;
+		width: 100%;
+		height: 80vh;
+		bottom: -35px;
+		right: 0px;
+		padding: 0 5px;
+		box-sizing: border-box;
+	}
+
+	.katie-icon{
+		display: block;
+		bottom: 2px;
+		right: 2px;
+	}
+
+	@media (max-width: 420px) and (orientation: portrait) {
+		.katie-chatbot.visible {
+			display: block;
+			width: 100%;
+			height: 85vh;
+			bottom: 0;
+			right: 0;
+			left: 0;
+			margin: 0;
+		}
+		.katie-icon {
+			display: none;
+		}
+	}
+
+	@media (max-width: 767px) and (min-width: 421px) and (orientation: landscape) {
+		.katie-chatbot.visible {
+			display: block;
+			width: 95%;
+			height: 90vh;
+			bottom: 0;
+			right: 0;
+			left: 0;
+			margin: auto;
+		}
+		.katie-icon {
+			display: none;
+		}
+	}
+
+	@media (min-width: 421px) and (max-width: 599px) and (orientation: portrait) {
+		.katie-chatbot.visible {
+			display: block;
+			width: 95%;
+			height: 80vh;
+			bottom: 0;
+			right: 0;
+			left: 0;
+			margin: 0 auto;
+		}
+
+		.katie-icon {
+			display: none;
+		}
+	}
+
+	@media (min-width: 500px) and (max-width: 900px) and (orientation: landscape) {
+		.katie-chatbot.visible {
+			display: block;
+			width: 70%;
+			height: 95vh;
+			bottom: 0;
+			right: 0;
+			left: 0;
+			margin: auto;
+		}
+		.katie-icon {
+			display: none;
+		}
+	}
+
+	@media (min-width: 600px) {
+		.katie-chatbot{
+			display: none;
+			width: 500px;
+			height: 700px;
+			bottom: 0px;
+			right: 20px;
+			left: unset;
+			margin: unset;
+			max-width: 90vw;
+			max-height: 90vh;
+		}
+		.katie-icon{
+			display: none;
+		}
+	}
+
+	.visible{
+		display: block;
+	}
+
+</style>
+
+<script defer>
+	let initialChatSize = sessionStorage.getItem('katie-size');
+	const iframe = document.querySelector('.katie-chatbot');
+	const botIcon = document.querySelector('.katie-icon');
+
+	function minimizeKatie() {
+		iframe.classList.remove('visible');
+		botIcon.classList.add('visible');
+		iframe.style.pointerEvents = 'none';
+	}
+
+	function maximizeKatie() {
+		iframe.classList.add('visible');
+		botIcon.classList.remove('visible');
+		iframe.style.pointerEvents = 'auto';
+	}
+
+	window.onload = function(){
+		if(initialChatSize === "min"){
+			minimizeKatie();
+		} else {
+			maximizeKatie();
+		}
+	}
+
+	botIcon.addEventListener('click', function(event){
+		maximizeKatie();
+	})
+
+	window.addEventListener('message', function(event){
+		if (event.origin !== 'https://katiechatbot-ekgdcqfphzfcb3bw.northeurope-01.azurewebsites.net') {
+			return;
+		}
+
+		if(event.data.action === "chatbot:minimize"){
+			minimizeKatie();
+			sessionStorage.setItem('katie-size', 'min');
+		} else if (event.data.action === "chatbot:maximize") {
+			maximizeKatie();
+			sessionStorage.setItem('katie-size', 'max');
+		}
+	});
+</script>

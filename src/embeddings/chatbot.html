@@ -1,0 +1,401 @@
+<div class="chatbot-container">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
+	<div class="chatbot">
+		<div class=chatbot-oppened>
+			<div class="chatbot-header">
+				<div class="katie-avatar-name">
+					<img width="35px" height="35px" src="https://intermediakt.org/wp-content/uploads/2023/12/KTBot-1.png">
+					<p class="chatbot-name"> KaTie </p>
+				</div>
+				<button class="chatbot-minimize"></button>
+			</div>
+			<div class="chatbot-content-container">
+				<div class="chatbot-content">
+					<div class="messages">
+						<p class="bot-message">Hello and welcome to our website. I am KaTie, InterMediaKT's AI assistant. How can I help you today?</p>
+					</div>
+					<div class="chatbot-typing"></div>
+				</div>
+				<div class="chatbot-footer">
+					<div class="chatbot-input">
+						<form class="message-input">
+							<input type="text" name="message" placeholder=" Enter your message">
+							<button type="submit"></button>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<style>
+
+	.chatbot-container{
+		height: 100%;
+		position: sticky;
+		display: flex;
+		flex-direction: row-reverse;
+	}
+
+	.chatbot{
+		height: 100%;
+		width: 100%;
+		font-family: "Source Sans 3", sans-serif;
+		position: absolute;
+		float: right;
+		display: flex;
+		flex-direction: row-reverse;
+	}
+
+	.chatbot-oppened{
+		border-radius: 10px 10px 10px 10px;
+		height: 90%;
+		width: 100%;
+		position: relative;
+		bottom: -6%;
+		right: -2%;
+		/*background-image: url(https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExbzc3enJyMHg4aXpoNGF0NDJpYjhoNDN1YjJtZjB1MnJ0Z21vNnYzdCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/22kxQ12cxyEww/giphy.gif);
+		background-repeat: no-repeat;*/
+		background-color: #f5f5f5;
+	}
+
+	.chatbot-header{
+		border-radius: 10px 10px 0 0;
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		width: 100%;
+		height: 40px;
+		background-color: #6ec1e4;
+		text-align: center;
+		position: relative;
+		z-index: 20;
+	}
+
+	.katie-avatar-name{
+		display: flex;
+		flex-direction: row;
+		gap: 5px;
+		user-select: none;
+	}
+
+	.chatbot-header img{
+		position: relative;
+		top: 6%;
+		left: 5px;
+	}
+
+	.chatbot-name{
+		font-size: 22px;
+		margin-left: 5px;
+		color: #fff;
+		align-self: center;
+	}
+
+	.chatbot-minimize{
+		margin-right: 8px;
+		background-repeat: no-repeat;
+		background-color: inherit;
+		background-position-x: 50%;
+		background-position-y: 50%;
+		background-image: url(https://img.icons8.com/?size=10&id=79029&format=png&color=000000);
+		border: none;
+		cursor: pointer;
+		outline: inherit;
+		width: 10%;
+	}
+
+	.chatbot-content-container{
+		margin-left: 10px;
+	}
+
+	.chatbot-content{
+		height: 85%;
+		overflow-y: auto;
+		overflow-x: hidden;
+		display: flex;
+		flex-direction: column-reverse;
+		scrollbar-width: thin;
+		scrollbar-color: #78b9d0 #006680;
+		position: relative;
+	}
+
+	.chatbot-content::-webkit-scrollbar-button {
+		display: none;
+		height: 0;
+		width: 0;
+	}
+
+	.chat-container {
+		margin: 0 auto;
+		padding: 1rem;
+		display: flex;
+		font-size: 15px;
+		flex-direction: column;
+		gap: 0.75rem;
+		background-color: #fff;
+		border-radius: 12px;
+		box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+	}
+
+	.messages{
+		overflow-wrap: break-word;
+		margin-left: 10px;
+		text-wrap: wrap;
+	}
+
+	.messages p{
+		font-size: 19px;
+		display:inline-block;
+		align-content: left;
+		text-align: left;
+		height: auto;
+		min-width: 50px;
+		width: auto;
+		max-width: 400px;
+		line-height: 25px;
+		padding: 10px 14px;
+		float: left;
+		border-radius: 10px 10px 10px 0;
+		position: relative;
+		z-index: 10;
+	}
+
+	.user-message{
+		float:right !important;
+		margin-right: 10px;
+		border-radius: 10px 10px 0 10px !important;
+		background-color: #dcf8c6;
+		color: #333;
+	}
+
+	.bot-message{
+		background-color: #caf0f8;
+		color: #333;
+	}
+
+	.system-message{
+		background-color: #9a8c98;
+		padding: 10px 12px;
+	}
+
+	.chatbot-footer{
+		position: sticky;
+		bottom: 10px;
+		box-sizing: border-box;
+		flex-shrink: 0;
+		min-height: 55px;
+		z-index: 9999;
+	}
+
+	.chatbot-input .message-input{
+		display: flex;
+		flex-wrap: nowrap;
+		flex-direction: row;
+		justify-content: space-between;
+		align-items: center;
+		height: 35px;
+		width: 93%;
+		margin-top: 10px;
+		border-radius: 0 0 0 20px;
+		padding-left: 8px;
+		padding-right: 19px;
+		gap: 6px;
+	}
+
+	.chatbot-input .message-input input{
+		font-family: "Source Sans 3", sans-serif;
+		font-size: 18px;
+		height: 100%;
+		border-style: none;
+		padding: 20px;
+		padding-left: 10px;
+		background-color: #ffffff;
+		border-radius: 10px 10px 10px 10px;
+		width: 90%;
+		transition: background-color 0.25s linear;
+	}
+
+	.chatbot-input .message-input input:focus{
+		outline-width: 0;
+		background-color: #e1e5f2;
+	}
+
+	.chatbot-input .message-input button{
+		border-style: none;
+		background-color: transparent;;
+		background-repeat: no-repeat;
+		background-image: url(https://img.icons8.com/material-outlined/24/sent.png);
+		height:24px;
+		width:24px;
+	}
+
+	.chatbot-typing {
+		position: absolute;
+		left: 28px;
+		height: 5px;
+		width: 5px;
+		bottom: 2px;
+		aspect-ratio: 1;
+		border-radius: 50%;
+		animation: l5 1s infinite linear alternate;
+	}
+	@keyframes l5 {
+		0%  {box-shadow: 10px 0 #000, -10px 0 #0002;background: #000 }
+		33% {box-shadow: 10px 0 #000, -10px 0 #0002;background: #0002}
+		66% {box-shadow: 10px 0 #0002,-10px 0 #000; background: #0002}
+		100%{box-shadow: 10px 0 #0002,-10px 0 #000; background: #000 }
+	}
+</style>
+
+<script type="text/javascript" defer>
+
+	const chatbotOpened = document.querySelector(".chatbot-oppened");
+	const typingDiv = document.querySelector(".chatbot-typing");
+	const input = document.querySelector('.message-input');
+	let webSocket;
+
+	function minimizeChatBot(){
+		window.parent.postMessage({action: 'chatbot:minimize'}, 'https://intermediakt.org');
+	}
+
+	function maximizeChatBot(){
+		window.parent.postMessage({action: 'chatbot:maximize'}, 'https://intermediakt.org');
+	}
+
+	function getHistory(){
+		if(localStorage.getItem('chatHistory') === null){
+			localStorage.setItem('chatHistory', JSON.stringify([]));
+		}
+		const history = JSON.parse(localStorage.getItem('chatHistory'));
+		return history;
+	}
+
+	function updateHistory(newMessage){
+		let history = getHistory();
+		if(history.length > 6){
+			history.shift();
+		}
+		history.push(newMessage);
+		localStorage.setItem('chatHistory', JSON.stringify(history));
+		return history;
+	}
+
+	function isCookieSet(name= "sessionId"){
+		return document.cookie.split(';').some(cookie=> 
+			cookie.trim().startsWith(`${name}=`)
+		);
+	}
+
+	function parseList(botMessage){
+		return botMessage.replace(/(?<=(^|\n|<br>\s*| |[.!?]\s))(\d{1,2}\. )/g, "<br>$2");
+	}
+
+	function parseMarkdownBold(botMessage){
+		return botMessage.replace(/\*{2}(.*?)\*{2}/g, "<strong>$1</strong>");
+	}
+
+	function parseMarkdownLink(botMessage){
+		return botMessage.replace(/(\[)(.+?)(\])\((.+?)\)/g, "<a href=\"$4\" target=\"_blank\" rel=\"noopener noreferrer\" onclick=\"window.open(this.href, '_blank'); return false;\"> $2 </a>");
+	}
+
+	function displayMessage(message, user){
+		const newP = document.createElement('p');
+		newP.classList.add(`${user}-message`);
+
+		let processedMessage = parseMarkdownLink(message);
+		processedMessage = parseMarkdownBold(processedMessage);
+
+		newP.innerHTML = processedMessage;
+		console.log(`innertMessageHTML: ${newP.innerHTML}`);
+		newP.innerHTML = newP.innerHTML.replace(/\n/g, '<br>');
+		const messages = document.querySelector('.messages');
+		messages.appendChild(newP);
+	}
+
+	function displayMessagesFromHistory(){
+		const history = getHistory();
+		if(!history) return;
+		for(const message of history){
+			if(message && message.content && message.role){
+				displayMessage(message.content, message.role);
+			}			
+		}
+		return;
+	}
+
+	window.onload = function(){
+		typingDiv.style.display = "none";
+
+		if(sessionStorage.getItem('tabActive') === null){
+			localStorage.removeItem('chatHistory');
+		}
+		sessionStorage.setItem('tabActive', 1);
+		displayMessagesFromHistory();
+	};
+
+	const minimizeButton = document.querySelector(".chatbot-minimize")
+	minimizeButton.addEventListener('click', (event)=>{
+		event.preventDefault();
+
+		minimizeChatBot();
+	});
+
+	webSocket = new WebSocket(`wss://katiechatbot-ekgdcqfphzfcb3bw.northeurope-01.azurewebsites.net/`);
+	webSocket.onopen = ()=>{
+		const pingInterval = setInterval(() => {
+			if (webSocket.readyState === WebSocket.OPEN) {
+				webSocket.send(JSON.stringify({ type: "ping" }));
+			}
+		}, 25000);
+
+		webSocket.onclose = (event)=>{
+			clearInterval(pingInterval);
+			displayMessage("Connection was closed please refresh", 'system');
+		}
+	}
+	webSocket.onmessage = (event)=>{
+		const response = JSON.parse(event.data);
+		typingDiv.style.display = "none";
+		displayMessage(response.message.trim(), 'bot');
+		updateHistory({
+			role: "bot",
+			content: response.message.trim()
+		});
+	}
+	
+	const a = function(stri){ return stri.replaceAll(/\<(.+?)\>/g, "")}
+
+	input.addEventListener('submit', (event)=>{
+		event.preventDefault();
+		const formData = new FormData(event.target);
+		const message = a(formData.get('message').trim());
+		//const history = getHistory();
+		if(!message){
+			return;
+		}
+		if(message.length < 5){
+			displayMessage( "Text input should be longer that 5 characters", 'system');
+			event.target.reset();
+			return;
+		}
+		
+//		if(history){
+//			webSocket.send(message + JSON.stringify(history));
+//		} else{
+			webSocket.send(message);
+//		}
+
+		displayMessage(message, 'user');
+		event.target.reset();
+		typingDiv.style.display = "block";
+		updateHistory({
+			role: "user",
+			content: message
+		});
+		return;
+	});
+
+</script>
