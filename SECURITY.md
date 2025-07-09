@@ -128,7 +128,7 @@ const randomStringGenerator = function(min, max, bigchance = 0.05, jackpot = 0.0
 ```
 ![Normal Rsponse](./assets/normal.png)
 ![Big Chance](./assets/bigchance.png)
-![Jackpot](./assets.jackpot.png)
+![Jackpot](./assets/jackpot.png)
 
 And here is how it is applyied in the app:
 ### app.js
