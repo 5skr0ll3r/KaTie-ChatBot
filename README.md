@@ -1,4 +1,4 @@
-# KaTie Chat Bot
+# KaTie ChatBot
 [![InterMediakt DsMedia](https://intermediakt.org/wp-content/uploads/2024/01/Official_trsp-1024x194.png)](https://intermediakt.org)
 
 ## Author
