@@ -41,7 +41,6 @@ if(!isValidCarrier(req)){
 
 //websocket.js
 if(!isValidCarrier(req)){
-	console.log("Is not Valid Carrier")
 	ws.terminate();
 	return;
 }
