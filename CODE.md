@@ -160,4 +160,4 @@ ${results}
 **Description**: Contains function to replace html tags from user input.
 
 **Functions**: 
-- a(stri) -> String
+- removeElements(stri) -> String
