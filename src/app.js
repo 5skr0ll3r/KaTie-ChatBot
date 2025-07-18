@@ -1,7 +1,6 @@
 const http = require('http');
 const fs = require('fs');
 const { rateLimiter, rateLimiterMiddleware, isValidCarrier } = require('./utils/abm.js');
-const { randomCase, randomStringGenerator } = require('./utils/utils.js');
 
 const app = http.createServer(async (req,res)=>{
 	if(!isValidCarrier(req)){
