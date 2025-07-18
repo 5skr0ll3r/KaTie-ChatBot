@@ -16,32 +16,6 @@ const app = http.createServer(async (req,res)=>{
 			}
 
 			let _jCase = await rateLimiter.consume(req.socket.remoteAddress, 5);
-			
-			const randString = randomStringGenerator(40, 380);
-			
-			if(randString.jackpot){
-				fs.promises.readFile('./assets/wydh.html').then((data)=>{
-					const headers = {
-						[randomCase('Content-Type')]: 'text/html',
-						[randomCase('Content-Length')]: data.length
-					};
-					res.writeHead(200, headers);
-					return res.end(data);
-				}).catch((error)=>{
-					res.writeHead(500, headers);
-					return res.end("Something went wrong please try again");
-				});
-			}else{
-				const headers = {
-					[randomCase('Content-Type')]: 'text/html',
-					[randomCase('Content-Length')]: randString.randomString.length
-				};
-
-				setTimeout(()=>{
-					res.writeHead(200, headers);
-					return res.end(randString.randomString);
-				}, Math.floor(Math.random() * 100));
-			}
 		}).catch((rateLimiterRes)=>{
 			res.writeHead(429);
 			return res.end("Too many requests");
