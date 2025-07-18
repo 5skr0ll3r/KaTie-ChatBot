@@ -129,9 +129,6 @@ SCM_DO_BUILD_DURING_DEPLOYMENT=true # We set DO_BUILD to true in order for azure
 ## Code
 [CODE.md](./CODE.md)
 
-## Security
-[SECURITY.md](./SECURITY.md)
-
 ## License
 [Attribution-ShareAlike 4.0 International](./LICENSE.md)
 
