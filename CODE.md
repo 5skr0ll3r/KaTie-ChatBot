@@ -24,8 +24,6 @@
      │       └── GPTManager.js
      ├── package.json
      ├── package-lock.json
-     ├── README.md
-     ├── LICENSE.md
      ├── .env
      └── .deployment
 ```
