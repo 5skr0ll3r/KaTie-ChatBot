@@ -87,7 +87,7 @@ zip -r chatbot.zip * .[^.]* -x node_modules\* data_preparation\* embeddings/test
 zip -r <output-file-name> <regex-of-files-to-include> -x <files-to-exclude>
 
 ## Deploy to Azure
-az webapp deployment source config-zip --resource-group IMKT-Chatbot --name katieChatBot --src chatbot.zip
+az webapp deployment source config-zip --resource-group <Your-Resource-Group> --name <webapp-name> --src chatbot.zip
 
 az webapp deployment source config-zip \
   --resource-group <resource-group-name> \
